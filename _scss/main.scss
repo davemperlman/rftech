@@ -161,18 +161,19 @@ header {
 @media screen and ( max-width: map-get($breaks, mobile) ) {
 	header {
 		nav {
-			display: none;
 			transition: all .5s;
 			float: none;
 			background-color: rgba(0,0,0,.9);
 			width: 100%;
+			top: 0;
+			margin-top: -100vh;
 			height: 100vh;
 			position: absolute;
 			overflow: hidden;
 			&.height {
 				display: block;
-				top: 0;
-				transition: all .5s;
+				margin-top: 0; 
+				transition: all .25s;
 			}
 			.topnav {
 				width: 100%;
@@ -205,9 +206,11 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	font-size: map-get($fonts, text);
+	font-family: 'Cabin', sans-serif;
 	p {
 		line-height: 1.5rem;
 		color: #666;
+		font-family: serif;
 		text-indent: 2rem;
 		margin-bottom: 1rem;
 	}
@@ -242,8 +245,9 @@ body {
 		break-inside: avoid;
 		margin: 0 auto;
 		img {
-			margin: 2rem auto;
+			margin: .5rem auto 2rem;
 			display: block;
+			width: 60%;
 		}
 	}
 }
@@ -272,6 +276,28 @@ body {
 		li {
 			text-align: center;
 			break-inside: avoid;
+			height: 650px;
+			position: relative;
+			@media screen and ( max-width: map-get($breaks, tablet) ) {
+				height: auto;
+			}
+			img {
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				// @media screen and ( max-width: map-get($breaks, wide) ) {
+				// 	width: 60%;
+				// 	right: 0;
+				// 	margin: auto;
+				// 	display: block;
+				// }
+				@media screen and ( max-width: map-get($breaks, wide) ) {
+					position: relative;
+					width: 50%;
+					margin: 0rem auto;
+				}
+			}
 			h4 {
 				color: map-get($colors, h4w);
 				font-size: map-get($fonts, h4);
@@ -295,6 +321,9 @@ body {
 	div {
 		height: 50%;
 		// padding-top: 25%;
+		@media screen and ( max-width: map-get($breaks, mobile) ) {
+			width: 100%;
+		}
 		width: 50%;
 		// margin: 0 auto;
 		position: absolute;
@@ -307,6 +336,7 @@ body {
 		text-align: center;
 		h1 {
 			font-size: map-get($fonts, h1);
+			font-weight: 900;
 			color: map-get($colors, h1);
 		}
 		h2 {

@@ -4,7 +4,8 @@ $fonts: (
 	h3: 2.2rem,
 	h4: 1.6rem,
 	menu: 1.25rem,
-	mobilemenu: 2rem
+	mobilemenu: 2rem,
+	text: 1.15rem
 	);
 $colors: (
 	h1: #fff,
@@ -25,10 +26,11 @@ header {
 	z-index: 2;
 	width: 100%;
 	height: 75px;
-	transition: all .5s;
+	transition: all .25s;
 	&.colored {
-		background-color: rgba(50, 50, 80, .9);
-		padding-top: 2rem;
+		background-color: rgba(0, 0, 0, .99);
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 	.logo {
 		display: inline-block;
@@ -140,7 +142,7 @@ header {
 	p {
 		padding: 1rem;
 	}
-	.block.services {
+	.block.services, .block.about {
 		width: 100%;
 		padding: 5rem 0 0 0;
 		ul {
@@ -160,13 +162,18 @@ header {
 	header {
 		nav {
 			display: none;
+			transition: all .5s;
 			float: none;
 			background-color: rgba(0,0,0,.9);
 			width: 100%;
 			height: 100vh;
 			position: absolute;
-			top: 0;
 			overflow: hidden;
+			&.height {
+				display: block;
+				top: 0;
+				transition: all .5s;
+			}
 			.topnav {
 				width: 100%;
 				height: 20%;
@@ -197,6 +204,7 @@ header {
 body {
 	margin: 0 auto;
 	width: 100%;
+	font-size: map-get($fonts, text);
 	p {
 		line-height: 1.5rem;
 		color: #666;
@@ -220,7 +228,11 @@ body {
 	width: 100%;
 
 }
-.info {
+
+.about {
+	border-bottom: .01rem solid #000;
+}
+.info, .about {
 	margin: 0 auto;
 	max-width: 1024px;
 	padding: 5rem;
@@ -236,6 +248,7 @@ body {
 	}
 }
 
+
 .services-wrap {
 	width: 100%;
 	background: url('../img/overlay1.png'), url('../img/banner.png');
@@ -249,6 +262,7 @@ body {
 	}
 	h3 {
 		color: #fff;
+		margin-bottom: 2rem;
 	}
 	ul {
 		column-count: 4;
@@ -257,13 +271,19 @@ body {
 		width: 100%;
 		li {
 			text-align: center;
+			break-inside: avoid;
 			h4 {
 				color: map-get($colors, h4w);
 				font-size: map-get($fonts, h4);
+				margin-bottom: 2rem;
+				@media screen and ( max-width: map-get($breaks, tablet) ) {
+					margin-top: 1.5rem;
+					margin-bottom: 1.5rem;
+					}
+				}
 			}
 		}
 	}
-}
 
 .banner {
 	background-image: url('../img/overlay1.png'), url('../img/banner.png');
@@ -317,14 +337,53 @@ body {
 
 .foot {
 	width: 100%;
+	padding-top: 1rem;
 	//background-image: url('../img/overlay1.png');
 	//background-size: cover;
 	background-color: #333;
+	@media screen and ( max-width: map-get($breaks, mobile) ) {
+				padding-top: 0;
+			}
 	footer, nav {
 		max-width: 1024px;
 		margin: 0 auto;
 		display: block;
 	}
+
+	h2 img {
+		width: 10%;
+		min-width: 5rem;
+		margin: 1rem auto;
+		display: none;
+	}
+
+	span {
+			border-radius: 0;
+			background-color: transparent;
+			border: solid .1rem #fff;
+			width: 10rem;
+			height: 4rem;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			display: block;
+			//margin-top: 10rem;
+			margin: 2rem auto;
+			color: #fff;
+			transition: all .4s;
+			cursor: pointer;
+			text-align: center;
+			@media screen and ( max-width: map-get($breaks, mobile) ) {
+				margin-top: 0;
+				width: 100%;
+				box-sizing: border-box;
+				background-color: #fff;
+				color: #0098ec;
+			}
+			&:hover {
+				background-color: #ccc;
+				color: #0098ec;
+			}
+		}
 
 	nav {
 		text-align: center;
@@ -333,13 +392,14 @@ body {
 				display: inline-block;
 				width: 4rem;
 				height: 3rem;
-				margin: 2rem;
+				margin: 1rem;
 				line-height: 3rem;
 				a {
 					text-decoration: none;
 					display: block;
 					width: 100%;
 					height: 100%;
+					color: #aaa;
 					&:hover {
 						color: #fff;
 					}

@@ -31,22 +31,23 @@
 <section class="block banner">
 	<!-- Mission Statement -->
 	<div>
-		<h1>Intelligent marketing.</h1>
-		<h2>We provide a service.</h2>
+		<h1>Define Yourself.</h1>
+		<h2>with a strong web presence.</h2>
 		<span>Get Started</span>
 	</div>
 </section>
 <div class="info-wrap">
+	<section class="block about">
+		<h3>About us</h3>
+		<p>Refined Technologies is a company dedicated to providing excellence in Web Development and Design. </p>
+	</section>
 	<section class="block info">
-		<!-- Info, maybe columns? -->
 		<div>
-			<h3>Cutting Edge</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto facere, voluptatem consectetur nisi quam placeat sunt laborum, accusantium beatae sint laudantium voluptatibus nam consequatur quidem aliquam officia in aut quisquam.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, sunt, impedit? Doloremque voluptates quaerat, repellendus, nesciunt doloribus iusto dolore quas labore quo! Delectus, recusandae consequuntur at nihil porro harum aliquam.</p>
+			<h3>Redefine | Refine</h3>
+			<p>Conceptualizing an internet presence can be an arduos task. What do I want to say - who do I want to say it to - how do I want to say it - These are all questions that we help you to answer. A site isn't just a site anymore. What your site offers will define you or your company in the eyes of your users.</p>
 			<img src="http://via.placeholder.com/200x200" alt="">
 			<h3>Modern Design Practice</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo illum totam officiis, saepe ducimus quasi harum corporis voluptas nesciunt hic at incidunt cupiditate eveniet omnis, vero, expedita voluptatibus fugit. Ea.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia facere reprehenderit laboriosam, sapiente veniam illo cum voluptate facilis animi quasi esse quisquam ducimus, officiis iure saepe, fuga eos sint ea.</p>
+			<p>The competitive market demands a business be fluid and ready to change. Utlizing the latest development and design trends keeps your web presence fresh and boasts a refreshing user experience for your clients.</p>
 			<img src="http://via.placeholder.com/200x200" alt="">
 		</div>
 	</section>
@@ -57,23 +58,22 @@
 		<ul>
 			<li>
 				<h4>Design</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae culpa ullam earum repellendus rerum minima, laborum illum quia officiis, dicta porro accusantium cum consequatur! Dignissimos ullam delectus modi repellendus saepe.</p>
+				<p>Provide your users with a sleek, modern visual experience that allows them to easily navigate. It's a creative process, no two designs are the same. We build our designs based on what you want the user experience to be.</p>
 				<img src="http://via.placeholder.com/200x200" alt="">
 			</li>
 			<li>
 				<h4>Data</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi facere commodi aspernatur, nisi laudantium ea reprehenderit! Dolorem voluptatum, possimus, voluptas qui, ipsa dolore vero nulla quos in et quibusdam magni.</p>
+				<p>The processing and manipulation of data is an often overlooked aspect of modern web applications. Contracts, email lists, customer databases, and the like are all dynamic information that can often be more efficiently managed by a web application. We can help you increase the interactivity of your site by building custom data management and processing functionality.</p>
 				<img src="http://via.placeholder.com/200x200" alt="">
 			</li>
 			<li>
-				<h4>WordPress</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt ea optio quaerat fugit tempora eligendi quasi maxime dolores. Dolor commodi suscipit asperiores quos, eum iusto nulla accusantium possimus enim neque.</p>
-				<p>lorem</p>
+				<h4>Content Management</h4>
+				<p>Managing content. As an administrator of a site, you should be able to easily modify and update content on your site. Add a blog post, upload media, change the title of an article, etc. These are all things that can be done without having to contact a developer. Keep more of your time.</p>
 				<img src="http://via.placeholder.com/200x200" alt="">
 			</li>
 			<li>
 				<h4>SEO</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti pariatur quasi, reprehenderit rem esse eum voluptates iste eligendi veniam fugit. Dicta ducimus modi voluptatum est at voluptas hic harum laboriosam?</p>
+				<p>So you have a site, great! Now let's help people find it. There are BILLIONS of websites on the internet, we make sure that people are finding yours using proper semantics and targeted keywords.</p>
 				<img src="http://via.placeholder.com/200x200" alt="">
 			</li>
 		</ul>
@@ -81,18 +81,18 @@
 </div>
 <section class="foot">
 	<footer>
-		<h2>here is foot</h2>
-	</footer>
-	<nav>
+		<span>Get Started</span>
+		<h2>
+			<img src="img/notext.png" alt="">
+		</h2>
+			<nav>
 		<ul class="bottomnav" aria-label="Navigation">
 			<li><a href="#">Home</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-</section>
-<section>
-	
+	</footer>
 </section>
 <script src='js/menu.js'></script>
 </body>

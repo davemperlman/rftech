@@ -8,9 +8,8 @@
 	}
 
 	$('#nav-icon').click(function() {
-		$('header nav').slideToggle('500ms', function() {
-			$('#nav-icon').toggleClass('open');
-		});
+		$('header nav').toggleClass('height');
+		$('#nav-icon').toggleClass('open');
 	});
 
 	$(window).scroll(function() {
@@ -20,5 +19,6 @@
 		}else{
 			$('header').removeClass('colored');
 		}
-	})
+	});
+
 }())

@@ -1,13 +1,89 @@
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes rotateCounterClockwise {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-360deg); } }
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+#loading-img {
+  width: 6rem;
+  height: 6rem;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100%;
+  border: .5rem dashed orange;
+  box-sizing: border-box;
+  animation: rotateClockwise 3s linear infinite; }
+  #loading-img::after {
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    border: .5rem dashed purple;
+    box-sizing: border-box;
+    width: 90%;
+    height: 90%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    animation: rotateCounterClockwise 1.5s linear infinite; }
+  #loading-img::before {
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    border: .5rem dashed red;
+    box-sizing: border-box;
+    width: 60%;
+    height: 60%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: block; }
+
 header {
   position: fixed;
   z-index: 2;
   width: 100%;
   height: 75px;
   transition: all .25s; }
+  header img:first-child {
+    display: block; }
+  header img:last-child {
+    display: none; }
   header.colored {
-    background-color: rgba(0, 0, 0, 0.99);
+    background-color: white;
     padding-top: 1rem;
-    padding-bottom: 1rem; }
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #000; }
+    header.colored .topnav a {
+      color: #000; }
+      header.colored .topnav a:hover {
+        background-color: #eee;
+        color: #111; }
+    header.colored img:first-child {
+      display: none; }
+    header.colored img:last-child {
+      display: block; }
   header .logo {
     display: inline-block;
     max-width: 30%;
@@ -195,15 +271,16 @@ body {
       text-align: center;
       break-inside: avoid;
       height: 650px;
-      position: relative; }
+      position: relative;
+      transition: all .5s; }
+      .services ul li:hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.4); }
       @media screen and (max-width: 676px) {
         .services ul li {
           height: auto; } }
       .services ul li img {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0; }
+        width: 100%; }
         @media screen and (max-width: 990px) {
           .services ul li img {
             position: relative;
@@ -217,6 +294,11 @@ body {
           .services ul li h4 {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem; } }
+
+.specs div {
+  height: 0;
+  overflow: hidden;
+  transition: all .5s; }
 
 .banner {
   background-image: url("../img/overlay1.png"), url("../img/banner.png");
@@ -265,8 +347,17 @@ body {
 
 .foot {
   width: 100%;
-  padding-top: 1rem;
-  background-color: #333; }
+  padding-top: 1rem; }
+  .foot .icons {
+    display: table;
+    margin: 0 auto; }
+    .foot .icons li {
+      display: table-cell;
+      padding: 1rem; }
+  .foot section {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center; }
   @media screen and (max-width: 480px) {
     .foot {
       padding-top: 0; } }
@@ -282,14 +373,14 @@ body {
   .foot span {
     border-radius: 0;
     background-color: transparent;
-    border: solid .1rem #fff;
+    border: solid .1rem #000;
     width: 10rem;
     height: 4rem;
     font-size: 1.5rem;
     line-height: 4rem;
     display: block;
     margin: 2rem auto;
-    color: #fff;
+    color: #000;
     transition: all .4s;
     cursor: pointer;
     text-align: center; }
@@ -319,5 +410,68 @@ body {
         color: #aaa; }
         .foot nav ul li a:hover {
           color: #fff; }
+
+.modal-wrap {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: none; }
+  .modal-wrap .modal {
+    width: 40%;
+    min-width: 600px;
+    max-width: 1024px;
+    height: 50%;
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 1rem; }
+    @media screen and (max-width: 676px) {
+      .modal-wrap .modal {
+        width: 100%;
+        min-width: 0;
+        padding-left: 0;
+        padding-right: 0; } }
+    .modal-wrap .modal h3 {
+      font-size: 2.2rem;
+      text-align: center; }
+    .modal-wrap .modal ul {
+      width: 60%;
+      margin: 0 auto;
+      display: block; }
+    .modal-wrap .modal #loading-img {
+      display: none; }
+    .modal-wrap .modal form {
+      width: 90%;
+      margin: 0 auto; }
+      .modal-wrap .modal form input, .modal-wrap .modal form label, .modal-wrap .modal form textarea {
+        display: block;
+        width: 100%;
+        resize: none; }
+      .modal-wrap .modal form button {
+        width: 50%;
+        margin: .5rem auto;
+        display: block; }
+    .modal-wrap .modal span {
+      border-radius: 0;
+      background-color: transparent;
+      border: solid .1rem #000;
+      width: 10rem;
+      height: 4rem;
+      font-size: 1.5rem;
+      line-height: 4rem;
+      display: block;
+      margin: 2rem auto;
+      color: #000;
+      transition: all .4s;
+      cursor: pointer;
+      text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

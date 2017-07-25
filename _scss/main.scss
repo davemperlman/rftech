@@ -21,16 +21,105 @@ $breaks: (
 	mobile: 480px
 	);
 
+// Animations
+ @keyframes rotateClockwise {
+ 	0% { transform: rotate(0deg); }
+ 	100% { transform: rotate(360deg); }
+ }
+
+ @keyframes rotateCounterClockwise {
+ 	0% { transform: rotate(0deg); }
+ 	100% { transform: rotate(-360deg); }
+ }
+
+// Loader ------------------------------------------------------------
+	#loading {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		display: block;
+		z-index: 2;
+		background-color: rgba(255, 255, 255, .8);
+	}
+	#loading-img {
+		width: 6rem;
+		height: 6rem;
+		display: block;
+		//background-color: #000;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		border-radius: 100%;
+		border: .5rem dashed orange;
+		box-sizing: border-box;
+		animation: rotateClockwise 3s linear infinite;
+		&::after {
+			position: absolute;
+			content: '';
+			border-radius: 100%;
+			border: .5rem dashed purple;
+			box-sizing: border-box;
+			width: 90%;
+			height: 90%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			display: block;
+			animation: rotateCounterClockwise 1.5s linear infinite;
+		}
+		&::before {
+			position: absolute;
+			content: '';
+			border-radius: 100%;
+			border: .5rem dashed red;
+			box-sizing: border-box;
+			width: 60%;
+			height: 60%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			display: block;
+		}
+	}
+//---------------------------------------------------------------
+
 header {
 	position: fixed;
 	z-index: 2;
 	width: 100%;
 	height: 75px;
 	transition: all .25s;
+	img:first-child {
+			display: block;
+		}
+		img:last-child {
+			display: none;
+		}
 	&.colored {
-		background-color: rgba(0, 0, 0, .99);
+		background-color: rgba(255, 255, 255, 1);
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+		border-bottom: 1px solid #000;
+		.topnav a {
+			color: #000;
+			&:hover {
+				background-color: #eee;
+				color: #111;
+			}
+		}
+		img:first-child {
+			display: none;
+		}
+		img:last-child {
+			display: block;
+		}
 	}
 	.logo {
 		display: inline-block;
@@ -44,7 +133,7 @@ header {
 		}
 	}
 
-	// MOBILE MENU ACTIVATOR
+	// MOBILE MENU ACTIVATOR ---------------------------------------------------------------
 	
 	#nav-icon {
 		height: 40px;
@@ -127,8 +216,9 @@ header {
 		}
 	}
 }
+// ---------------------------------------------------------------
 
-// RESPONSIVE
+// RESPONSIVE ---------------------------------------------------------------
 
 @media screen and ( max-width: map-get($breaks, wide) ) {
 	.block.services {
@@ -200,6 +290,8 @@ header {
 		}
 	}
 }
+
+// ---------------------------------------------------------------
 
 
 body {
@@ -278,20 +370,16 @@ body {
 			break-inside: avoid;
 			height: 650px;
 			position: relative;
+			transition: all .5s;
+			&:hover {
+				cursor: pointer;
+				background-color: rgba(255,255,255,.4);
+			}
 			@media screen and ( max-width: map-get($breaks, tablet) ) {
 				height: auto;
 			}
 			img {
-				width: 100%;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				// @media screen and ( max-width: map-get($breaks, wide) ) {
-				// 	width: 60%;
-				// 	right: 0;
-				// 	margin: auto;
-				// 	display: block;
-				// }
+				  width: 100%;
 				@media screen and ( max-width: map-get($breaks, wide) ) {
 					position: relative;
 					width: 50%;
@@ -308,6 +396,14 @@ body {
 					}
 				}
 			}
+		}
+	}
+
+	.specs {
+		div {
+			height: 0;
+			overflow: hidden;
+			transition: all .5s;
 		}
 	}
 
@@ -370,7 +466,20 @@ body {
 	padding-top: 1rem;
 	//background-image: url('../img/overlay1.png');
 	//background-size: cover;
-	background-color: #333;
+	//background-color: #333;
+	.icons {
+		display: table;
+		margin: 0 auto;
+		li {
+			display: table-cell;
+			padding: 1rem;
+		}
+	}
+	section {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
 	@media screen and ( max-width: map-get($breaks, mobile) ) {
 				padding-top: 0;
 			}
@@ -378,6 +487,7 @@ body {
 		max-width: 1024px;
 		margin: 0 auto;
 		display: block;
+		//background-color: #459;
 	}
 
 	h2 img {
@@ -390,7 +500,7 @@ body {
 	span {
 			border-radius: 0;
 			background-color: transparent;
-			border: solid .1rem #fff;
+			border: solid .1rem #000;
 			width: 10rem;
 			height: 4rem;
 			font-size: 1.5rem;
@@ -398,7 +508,7 @@ body {
 			display: block;
 			//margin-top: 10rem;
 			margin: 2rem auto;
-			color: #fff;
+			color: #000;
 			transition: all .4s;
 			cursor: pointer;
 			text-align: center;
@@ -435,6 +545,80 @@ body {
 					}
 				}
 			}
+		}
+	}
+}
+
+// Modal --------------------------------------------------------
+.modal-wrap {
+	position: absolute;
+	background-color:rgba(0,0,0, .7);
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	display: none;
+	.modal {
+		width: 40%;
+		min-width: 600px;
+		@media screen and ( max-width: map-get($breaks, tablet) ) {
+			width: 100%;
+			min-width: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		max-width: 1024px;
+		height: 50%;
+		display: block;
+		position: absolute;
+		background-color: #fff;
+		right: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		padding: 1rem;
+		h3 {
+			font-size: map-get($fonts, h3);
+			text-align: center;
+		}
+		ul {
+			width: 60%;
+			margin: 0 auto;
+			display: block;
+		}
+		#loading-img {
+			display: none;
+		}
+		form {
+			width: 90%;
+			margin: 0 auto;
+			input, label, textarea {
+				display: block;
+				width: 100%;
+				resize: none;
+			}
+			button {
+				width: 50%;
+				margin: .5rem auto;
+				display: block;
+			}
+		}
+		span {
+			border-radius: 0;
+			background-color: transparent;
+			border: solid .1rem #000;
+			width: 10rem;
+			height: 4rem;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			display: block;
+			//margin-top: 10rem;
+			margin: 2rem auto;
+			color: #000;
+			transition: all .4s;
+			cursor: pointer;
+			text-align: center;
 		}
 	}
 }

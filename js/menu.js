@@ -1,7 +1,7 @@
 ( function() {
 	'use strict';
 
-	var opaqueHeader = 100;
+	var opaqueHeader = 50;
 
 	function getCurrentScroll(){
 		return window.pageYOffset || document.documentElement.scrollTop;

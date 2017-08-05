@@ -65,7 +65,8 @@ header {
   z-index: 2;
   width: 100%;
   height: 75px;
-  transition: all .25s; }
+  transition: all .25s;
+  background-color: rgba(255, 255, 255, 0.4); }
   header img:first-child {
     display: block; }
   header img:last-child {
@@ -73,11 +74,14 @@ header {
   header.colored {
     background-color: white;
     padding-top: 1rem;
-    padding-bottom: 1rem;
     border-bottom: 1px solid #000; }
-    header.colored .topnav a {
+    header.colored nav .topnav .hidden-services {
+      background-color: #fff; }
+    header.colored .hidden-services {
+      background-color: #fff; }
+    header.colored .topnav a, header.colored .topnav li span {
       color: #000; }
-      header.colored .topnav a:hover {
+      header.colored .topnav a:hover, header.colored .topnav li span:hover {
         background-color: #eee;
         color: #111; }
     header.colored img:first-child {
@@ -109,7 +113,7 @@ header {
     header #nav-icon span {
       position: absolute;
       display: block;
-      height: 6px;
+      height: .12rem;
       width: 100%;
       background-color: #fff;
       border-radius: 4px;
@@ -121,28 +125,46 @@ header {
         top: 12px; }
       header #nav-icon span:nth-child(3) {
         top: 24px; }
-    header #nav-icon.open span:nth-child(1) {
-      top: 12px;
-      transform: rotate(135deg); }
-    header #nav-icon.open span:nth-child(2) {
-      opacity: 0; }
-    header #nav-icon.open span:nth-child(3) {
-      transform: rotate(-135deg);
-      top: 12px; }
+    header #nav-icon.open span {
+      background-color: red; }
+      header #nav-icon.open span:nth-child(1) {
+        top: 12px;
+        transform: rotate(135deg); }
+      header #nav-icon.open span:nth-child(2) {
+        opacity: 0; }
+      header #nav-icon.open span:nth-child(3) {
+        transform: rotate(-135deg);
+        top: 12px; }
   header nav {
     float: right;
     height: 100%;
     margin-right: 2rem; }
     header nav .topnav {
       height: 100%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      position: relative; }
+      header nav .topnav .hidden-services {
+        display: none;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.4);
+        left: 0; }
+        header nav .topnav .hidden-services:hover {
+          display: block; }
+        header nav .topnav .hidden-services .hidden-service {
+          text-align: center;
+          display: block;
+          width: 100%; }
+          header nav .topnav .hidden-services .hidden-service:hover {
+            background-color: #ddd; }
       header nav .topnav li {
         float: left;
         list-style: none;
         width: 5rem;
         line-height: 75px;
         height: 100%; }
-        header nav .topnav li a {
+        header nav .topnav li a, header nav .topnav li span {
+          cursor: pointer;
           width: 100%;
           height: 100%;
           display: block;
@@ -151,13 +173,17 @@ header {
           color: #fff;
           font-size: 1.25rem;
           transition: all .5s; }
-          header nav .topnav li a:hover {
-            background-color: #fff;
+          header nav .topnav li a:hover, header nav .topnav li span:hover {
             color: #0098ec; }
+        header nav .topnav li span:hover ~ .hidden-services {
+          display: block; }
 
 @media screen and (max-width: 990px) {
   .block.services ul {
-    column-count: 2; } }
+    column-count: 1; }
+    .block.services ul li {
+      width: 100%;
+      display: inline-block; } }
 @media screen and (max-width: 676px) {
   p {
     padding: 1rem; }
@@ -174,6 +200,12 @@ header {
     .block.info div {
       column-count: 1; } }
 @media screen and (max-width: 480px) {
+  header.colored .topnav a {
+    color: #fff; }
+  header.colored #nav-icon span {
+    background-color: #000; }
+  header.colored #nav-icon.open span {
+    background-color: red; }
   header nav {
     transition: all .5s;
     float: none;
@@ -198,11 +230,13 @@ header {
       bottom: 0;
       display: block;
       margin: auto; }
-      header nav .topnav li {
+      header nav .topnav li, header nav .topnav .hidden-service {
         float: none;
         width: 100%;
         height: auto;
         font-size: 2rem; }
+      header nav .topnav .hidden-services {
+        position: relative; }
   header .logo {
     width: 40%;
     margin: 0 auto;
@@ -224,7 +258,7 @@ body {
   margin: 0 auto; }
   .block h3 {
     font-size: 2.2rem;
-    color: #000;
+    color: #e88d0c;
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center; }
@@ -248,11 +282,18 @@ body {
       margin: .5rem auto 2rem;
       display: block;
       width: 60%; }
+  .info ul, .about ul {
+    padding: 1rem;
+    break-inside: avoid; }
+    .info ul li, .about ul li {
+      margin: 1rem;
+      list-style: square; }
 
 .services-wrap {
   width: 100%;
-  background: url("../img/overlay1.png"), url("../img/banner.png");
-  background-size: contain, cover; }
+  background: url("../img/overlay1.png");
+  background-color: #6D0CE8;
+  background-size: contain; }
 
 .services {
   max-width: 1024px;
@@ -270,9 +311,12 @@ body {
     .services ul li {
       text-align: center;
       break-inside: avoid;
-      height: 650px;
       position: relative;
-      transition: all .5s; }
+      transition: all .5s;
+      padding: 1rem; }
+      @media screen and (max-width: 676px) {
+        .services ul li {
+          padding: 0; } }
       .services ul li:hover {
         cursor: pointer;
         background-color: rgba(255, 255, 255, 0.4); }
@@ -287,7 +331,7 @@ body {
             width: 50%;
             margin: 0rem auto; } }
       .services ul li h4 {
-        color: #fff;
+        color: #e88d0c;
         font-size: 1.6rem;
         margin-bottom: 2rem; }
         @media screen and (max-width: 676px) {
@@ -295,20 +339,39 @@ body {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem; } }
 
-.specs div {
-  height: 0;
-  overflow: hidden;
-  transition: all .5s; }
-
 .banner {
   background-image: url("../img/overlay1.png"), url("../img/banner.png");
   background-size: contain, cover;
   height: 50vh;
   min-height: 45rem;
   position: relative; }
+  .banner strong {
+    color: #E88D0C;
+    display: block; }
+  .banner span {
+    border-radius: .1rem;
+    background-color: transparent;
+    border: solid .1rem #fff;
+    width: 10rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    display: block;
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    transition: all .4s;
+    cursor: pointer;
+    text-align: center; }
+    .banner span:hover {
+      background-color: #fff;
+      color: #0098ec; }
   .banner div {
-    height: 50%;
-    width: 50%;
+    max-width: 1024px;
+    padding-top: 125px;
     position: absolute;
     display: block;
     left: 0;
@@ -316,38 +379,39 @@ body {
     top: 0;
     bottom: 0;
     margin: auto;
-    text-align: center; }
-    @media screen and (max-width: 480px) {
-      .banner div {
-        width: 100%; } }
+    text-align: center;
+    column-count: 2;
+    break-inside: avoid; }
+    .banner div img {
+      width: 100%; }
     .banner div h1 {
       font-size: 3rem;
       font-weight: 900;
-      color: #fff; }
+      color: #dedede; }
     .banner div h2 {
       font-size: 2.5rem;
-      color: #fff; }
-    .banner div span {
-      border-radius: 0;
-      background-color: transparent;
-      border: solid .1rem #fff;
-      width: 10rem;
-      height: 4rem;
-      font-size: 1.5rem;
-      line-height: 4rem;
-      display: block;
-      margin-top: 10rem;
-      margin: 10rem auto 0;
-      color: #fff;
-      transition: all .4s;
-      cursor: pointer; }
-      .banner div span:hover {
-        background-color: #fff;
-        color: #0098ec; }
+      color: #dedede; }
+    @media screen and (max-width: 990px) {
+      .banner div {
+        margin: 0 .5rem; }
+        .banner div h1 {
+          font-size: 2.2rem; }
+        .banner div h2 {
+          font-size: 1.6rem; } }
+    @media screen and (max-width: 720px) {
+      .banner div {
+        column-count: 1;
+        margin: 0; }
+        .banner div img {
+          width: 300px; } }
+    @media screen and (max-width: 480px) {
+      .banner div {
+        width: 100%; } }
 
 .foot {
   width: 100%;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  background-color: #333; }
   .foot .icons {
     display: table;
     margin: 0 auto; }
@@ -358,6 +422,8 @@ body {
     width: 100%;
     margin: 0 auto;
     text-align: center; }
+  .foot span {
+    display: none; }
   @media screen and (max-width: 480px) {
     .foot {
       padding-top: 0; } }
@@ -365,6 +431,8 @@ body {
     max-width: 1024px;
     margin: 0 auto;
     display: block; }
+    .foot footer section, .foot nav section {
+      padding-bottom: 1rem; }
   .foot h2 img {
     width: 10%;
     min-width: 5rem;
@@ -379,6 +447,7 @@ body {
     font-size: 1.5rem;
     line-height: 4rem;
     display: block;
+    display: none;
     margin: 2rem auto;
     color: #000;
     transition: all .4s;

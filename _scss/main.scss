@@ -8,11 +8,17 @@ $fonts: (
 	text: 1.15rem
 	);
 $colors: (
-	h1: #fff,
-	h2: #fff,
-	h3: #000,
-	h4: #000,
-	h4w: #fff
+	h1: #dedede,
+	h2: #dedede,
+	h3: #e88d0c,
+	h4: #444,
+	h4w: #e88d0c
+	);
+$colors2: (
+	main: #000,
+	secondary: #fff,
+	tertiary: #E88D0C,
+	quaternary: #6D0CE8
 	);
 
 $breaks: (
@@ -96,6 +102,7 @@ header {
 	width: 100%;
 	height: 75px;
 	transition: all .25s;
+	background-color: rgba(255,255,255,.4);
 	img:first-child {
 			display: block;
 		}
@@ -105,9 +112,15 @@ header {
 	&.colored {
 		background-color: rgba(255, 255, 255, 1);
 		padding-top: 1rem;
-		padding-bottom: 1rem;
+		//padding-bottom: 1rem;
 		border-bottom: 1px solid #000;
-		.topnav a {
+		nav .topnav .hidden-services {
+			background-color: #fff;
+		}
+		.hidden-services {
+			background-color: #fff;
+		}
+		.topnav a, .topnav li span{
 			color: #000;
 			&:hover {
 				background-color: #eee;
@@ -151,7 +164,7 @@ header {
 		span {
 			position: absolute;
 			display: block;
-			height: 6px;
+			height: .12rem;
 			width: 100%;
 			background-color: #fff;
 			border-radius: 4px;
@@ -170,6 +183,7 @@ header {
 		}
 
 		&.open span {
+			background-color: red;
 			&:nth-child(1) {
 				top: 12px;
 				transform: rotate(135deg);
@@ -192,25 +206,48 @@ header {
 		.topnav {
 			height: 100%;
 			margin: 0 auto;
+			position: relative;
+			.hidden-services {
+				display: none;
+				position: absolute;
+				width: 100%;
+				background-color: rgba(255,255,255,.4);
+				left: 0;
+				&:hover {
+					display: block;
+				}
+				.hidden-service {
+					text-align: center;
+					display: block;
+					width: 100%;
+					&:hover {
+						background-color: #ddd;
+					}
+				}
+			}
 			li {
 				float: left;
 				list-style: none;
 				width: 5rem;
 				line-height: 75px;
 				height: 100%;
-				a {
+				a, span {
+					cursor: pointer;
 					width: 100%;
 					height: 100%;
 					display: block;
 					text-decoration: none;
 					text-align: center;
-					color: #fff;
+					color: map-get($colors2, secondary);
 					font-size: map-get($fonts, menu);
 					transition: all .5s;
 					&:hover {
-						background-color: #fff;
+						//background-color: map-get($colors2, tertiary);
 						color: #0098ec;
 					}
+				}
+				span:hover ~ .hidden-services {
+					display: block;
 				}
 			}
 		}
@@ -223,7 +260,11 @@ header {
 @media screen and ( max-width: map-get($breaks, wide) ) {
 	.block.services {
 		ul {
-			column-count: 2;
+			column-count: 1;
+			li {
+				width: 100%;
+				display: inline-block;
+			}
 		}
 	}
 }
@@ -250,6 +291,17 @@ header {
 
 @media screen and ( max-width: map-get($breaks, mobile) ) {
 	header {
+		&.colored .topnav a {
+			color: #fff;
+		}
+
+		&.colored #nav-icon span {
+			background-color: #000;
+		}
+
+		&.colored #nav-icon.open span {
+			background-color: red;
+		}
 		nav {
 			transition: all .5s;
 			float: none;
@@ -275,11 +327,14 @@ header {
 				bottom: 0;
 				display: block;
 				margin: auto;
-				li {
+				li, .hidden-service {
 					float: none;
 					width: 100%;
 					height: auto;
 					font-size: map-get($fonts, mobilemenu);
+				}
+				.hidden-services {
+					position: relative;
 				}
 			}
 		}
@@ -321,6 +376,8 @@ body {
 }
 .info-wrap {
 	width: 100%;
+	//background: url('../img/flat-logo1-transparent') no-repeat;
+	//background-size: contain ;
 
 }
 
@@ -342,13 +399,22 @@ body {
 			width: 60%;
 		}
 	}
+	ul {
+		padding: 1rem;
+		break-inside: avoid;
+		li {
+			margin: 1rem;
+			list-style: square;
+		}
+	}
 }
 
 
 .services-wrap {
 	width: 100%;
-	background: url('../img/overlay1.png'), url('../img/banner.png');
-	background-size: contain, cover;
+	background: url('../img/overlay1.png');
+	background-color: map-get($colors2, quaternary);
+	background-size: contain;
 }
 .services {
 	max-width: 1024px;
@@ -368,9 +434,12 @@ body {
 		li {
 			text-align: center;
 			break-inside: avoid;
-			height: 650px;
 			position: relative;
 			transition: all .5s;
+			padding: 1rem;
+			@media screen and (max-width: map-get($breaks, tablet)) {
+				padding: 0;
+			}
 			&:hover {
 				cursor: pointer;
 				background-color: rgba(255,255,255,.4);
@@ -399,13 +468,6 @@ body {
 		}
 	}
 
-	.specs {
-		div {
-			height: 0;
-			overflow: hidden;
-			transition: all .5s;
-		}
-	}
 
 .banner {
 	background-image: url('../img/overlay1.png'), url('../img/banner.png');
@@ -414,14 +476,43 @@ body {
 	height: 50vh;
 	min-height: 45rem;
 	position: relative;
+	strong {
+		color: map-get($colors2, tertiary);
+		display: block;
+	}
+	span {
+			border-radius: .1rem;
+			background-color: transparent;
+			border: solid .1rem #fff;
+			width: 10rem;
+			height: 4rem;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			display: block;
+			position: absolute;
+			bottom: 4rem;
+			left: 0;
+			right: 0;
+			margin: auto;
+			color: #fff;
+			transition: all .4s;
+			cursor: pointer;
+			text-align: center;
+			&:hover {
+				background-color: #fff;
+				color: #0098ec;
+			}
+		}
 	div {
-		height: 50%;
+		//height: 50%;
 		// padding-top: 25%;
-		@media screen and ( max-width: map-get($breaks, mobile) ) {
+		img {
 			width: 100%;
 		}
-		width: 50%;
+		//width: 50%;
 		// margin: 0 auto;
+		max-width: 1024px;
+		padding-top: 125px;
 		position: absolute;
 		display: block;
 		left: 0;
@@ -430,6 +521,8 @@ body {
 		bottom: 0;
 		margin: auto;
 		text-align: center;
+		column-count: 2;
+		break-inside: avoid;
 		h1 {
 			font-size: map-get($fonts, h1);
 			font-weight: 900;
@@ -439,24 +532,44 @@ body {
 			font-size: map-get($fonts, h2);
 			color: map-get($colors, h2);
 		}
-		span {
-			border-radius: 0;
-			background-color: transparent;
-			border: solid .1rem #fff;
-			width: 10rem;
-			height: 4rem;
-			font-size: 1.5rem;
-			line-height: 4rem;
-			display: block;
-			margin-top: 10rem;
-			margin: 10rem auto 0;
-			color: #fff;
-			transition: all .4s;
-			cursor: pointer;
-			&:hover {
-				background-color: #fff;
-				color: #0098ec;
+		// span {
+		// 	border-radius: 0;
+		// 	background-color: transparent;
+		// 	border: solid .1rem #fff;
+		// 	width: 10rem;
+		// 	height: 4rem;
+		// 	font-size: 1.5rem;
+		// 	line-height: 4rem;
+		// 	display: block;
+		// 	margin-top: 10rem;
+		// 	margin: 10rem auto 0;
+		// 	color: #fff;
+		// 	transition: all .4s;
+		// 	cursor: pointer;
+		// 	&:hover {
+		// 		background-color: #fff;
+		// 		color: #0098ec;
+		// 	}
+		// }
+		@media screen and ( max-width: map-get($breaks, wide) ) {
+			margin: 0 .5rem;
+			h1 {
+				font-size: map-get($fonts, h3);
 			}
+			h2 {
+				font-size: map-get($fonts, h4);
+			}
+		}
+
+		@media screen and ( max-width: 720px ) {
+			column-count: 1;
+			margin: 0;
+			img {
+				width: 300px;
+			}
+		}
+		@media screen and ( max-width: map-get($breaks, mobile) ) {
+			width: 100%;
 		}
 	}
 }
@@ -466,7 +579,7 @@ body {
 	padding-top: 1rem;
 	//background-image: url('../img/overlay1.png');
 	//background-size: cover;
-	//background-color: #333;
+	background-color: #333;
 	.icons {
 		display: table;
 		margin: 0 auto;
@@ -480,6 +593,9 @@ body {
 		margin: 0 auto;
 		text-align: center;
 	}
+	span {
+		display: none;
+	}
 	@media screen and ( max-width: map-get($breaks, mobile) ) {
 				padding-top: 0;
 			}
@@ -488,6 +604,9 @@ body {
 		margin: 0 auto;
 		display: block;
 		//background-color: #459;
+		section {
+			padding-bottom: 1rem;
+		}
 	}
 
 	h2 img {
@@ -506,6 +625,7 @@ body {
 			font-size: 1.5rem;
 			line-height: 4rem;
 			display: block;
+			display: none;
 			//margin-top: 10rem;
 			margin: 2rem auto;
 			color: #000;

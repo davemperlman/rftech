@@ -35,7 +35,7 @@
 					<ul class="hidden-services">
 						<li class="hidden-service"><a href="responsivedesign.php">Responsive Design</a></li>
 						<li class="hidden-service"><a href="databasedesign.php">Database Design</a></li>
-						<li class="hidden-service"><a>Content Management</a></li>
+						<li class="hidden-service"><a href="contentmanagement.php">Content Management</a></li>
 						<li class="hidden-service"><a>SEO Marketing</a></li>
 					</ul>
 				</li>

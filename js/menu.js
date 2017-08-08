@@ -12,13 +12,13 @@
 		$('#nav-icon').toggleClass('open');
 	});
 
-	$(window).scroll(function() {
-		var scroll = getCurrentScroll();
-		if (scroll >= opaqueHeader) {
-			$('header').addClass('colored');
-		}else{
-			$('header').removeClass('colored');
-		}
-	});
+	// $(window).scroll(function() {
+	// 	var scroll = getCurrentScroll();
+	// 	if (scroll >= opaqueHeader) {
+	// 		$('header').addClass('colored');
+	// 	}else{
+	// 		$('header').removeClass('colored');
+	// 	}
+	// });
 
 }())

@@ -18,7 +18,8 @@ $colors2: (
 	main: #000,
 	secondary: #fff,
 	tertiary: #E88D0C,
-	quaternary: #6D0CE8
+	quaternary: #6D0CE8,
+	button: #4BFF7F
 	);
 
 $breaks: (
@@ -102,43 +103,56 @@ header {
 	width: 100%;
 	height: 75px;
 	transition: all .25s;
-	background-color: rgba(255,255,255,.4);
+	background-color: rgba(255,255,255,.7);
+	background-color: map-get($colors2, tertiary);
+	.wrap {
+		height: 100%;
+		display: block;
+		max-width: 1250px;
+		margin: 0 auto;
+	}
 	img:first-child {
 			display: block;
 		}
 		img:last-child {
 			display: none;
 		}
-	&.colored {
-		background-color: rgba(255, 255, 255, 1);
-		padding-top: 1rem;
-		//padding-bottom: 1rem;
-		border-bottom: 1px solid #000;
-		nav .topnav .hidden-services {
-			background-color: #fff;
-		}
-		.hidden-services {
-			background-color: #fff;
-		}
-		.topnav a, .topnav li span{
-			color: #000;
-			&:hover {
-				background-color: #eee;
-				color: #111;
-			}
-		}
-		img:first-child {
-			display: none;
-		}
-		img:last-child {
-			display: block;
-		}
-	}
+	// &.colored {
+	// 	background-color: rgba(255, 255, 255, 1);
+	// 	padding-top: 1rem;
+	// 	//padding-bottom: 1rem;
+	// 	border-bottom: 1px solid #000;
+	// 	nav .topnav .hidden-services {
+	// 		background-color: #fff;
+	// 	}
+	// 	.hidden-services {
+	// 		background-color: #fff;
+	// 		@media screen and ( max-width: map-get($breaks, mobile) ) {
+	// 			background-color: none;
+	// 		}
+	// 	}
+	// 	.topnav a, .topnav li span{
+	// 		color: #000;
+	// 		&:hover {
+	// 			background-color: #eee;
+	// 			color: #111;
+	// 		}
+	// 	}
+	// 	img:first-child {
+	// 		display: none;
+	// 	}
+	// 	img:last-child {
+	// 		display: block;
+	// 	}
+	// 	.logo {
+	// 		margin-top: -.5rem;
+	// 	}
+	// }
 	.logo {
 		display: inline-block;
 		max-width: 30%;
 		height: 90%;
-		padding-top: .25rem;
+		padding-top: .2rem;
 		margin-bottom: .5rem;
 		padding-left: 1rem;
 		img {
@@ -211,8 +225,18 @@ header {
 				display: none;
 				position: absolute;
 				width: 100%;
-				background-color: rgba(255,255,255,.4);
+				background-color: rgba(255,255,255,.71);
+				background-color: map-get($colors2, tertiary);
 				left: 0;
+				li {
+					a {
+						font-size: 1rem;
+					}
+				}
+				@media screen and ( max-width: map-get($breaks, mobile) ) {
+					display: block;
+					background-color: transparent;
+				}
 				&:hover {
 					display: block;
 				}
@@ -221,7 +245,16 @@ header {
 					display: block;
 					width: 100%;
 					&:hover {
-						background-color: #ddd;
+						//background-color: mix(map-get($colors2, secondary), orange);
+					}
+					@media screen and (max-width: map-get( $breaks, mobile) ){
+						a {
+							width: 50%;
+							float: right;
+							clear: both;
+							font-size: 1rem;
+							text-align: left;
+						}
 					}
 				}
 			}
@@ -231,6 +264,11 @@ header {
 				width: 5rem;
 				line-height: 75px;
 				height: 100%;
+				@media screen and ( max-width: map-get($breaks, mobile) ) {
+					&:last-child {
+						clear: both;
+					}
+				}
 				a, span {
 					cursor: pointer;
 					width: 100%;
@@ -243,11 +281,18 @@ header {
 					transition: all .5s;
 					&:hover {
 						//background-color: map-get($colors2, tertiary);
-						color: #0098ec;
+						color: mix(map-get($colors2, secondary), #666);
 					}
 				}
 				span:hover ~ .hidden-services {
 					display: block;
+				}
+				span {
+					@media screen and ( max-width: map-get($breaks, mobile) ) {
+						&:hover {
+							color: #fff;
+						}
+					}
 				}
 			}
 		}
@@ -319,11 +364,11 @@ header {
 			}
 			.topnav {
 				width: 100%;
-				height: 20%;
+				//height: 20%;
 				position: absolute;
 				right: 0;
 				left: 0;
-				top: 0;
+				top: 50%;
 				bottom: 0;
 				display: block;
 				margin: auto;
@@ -335,6 +380,16 @@ header {
 				}
 				.hidden-services {
 					position: relative;
+					.hidden-service a {
+						position: relative;
+					}
+					.hidden-service a::before {
+						content: '\276F';
+						display: block;
+						position: absolute;
+						left: -1rem;
+						color: #fff;
+					}
 				}
 			}
 		}
@@ -383,6 +438,19 @@ body {
 
 .about {
 	border-bottom: .01rem solid #000;
+}
+
+.banner .aboutbanner {
+	h1, h2 {
+		display: none;
+		@media screen and (max-width: map-get($breaks, tablet)) {
+			display: block;
+		}
+	}
+	column-count: 1;
+	img {
+		max-width: 600px;
+	}
 }
 .info, .about {
 	margin: 0 auto;
@@ -472,7 +540,6 @@ body {
 .banner {
 	background-image: url('../img/overlay1.png'), url('../img/banner.png');
 	background-size: contain, cover;
-
 	height: 50vh;
 	min-height: 45rem;
 	position: relative;
@@ -527,30 +594,15 @@ body {
 			font-size: map-get($fonts, h1);
 			font-weight: 900;
 			color: map-get($colors, h1);
+			margin-top: 5rem;
+			@media screen and ( max-width: 720px ) {
+				margin-top: 0;
+			}
 		}
 		h2 {
 			font-size: map-get($fonts, h2);
 			color: map-get($colors, h2);
 		}
-		// span {
-		// 	border-radius: 0;
-		// 	background-color: transparent;
-		// 	border: solid .1rem #fff;
-		// 	width: 10rem;
-		// 	height: 4rem;
-		// 	font-size: 1.5rem;
-		// 	line-height: 4rem;
-		// 	display: block;
-		// 	margin-top: 10rem;
-		// 	margin: 10rem auto 0;
-		// 	color: #fff;
-		// 	transition: all .4s;
-		// 	cursor: pointer;
-		// 	&:hover {
-		// 		background-color: #fff;
-		// 		color: #0098ec;
-		// 	}
-		// }
 		@media screen and ( max-width: map-get($breaks, wide) ) {
 			margin: 0 .5rem;
 			h1 {
@@ -586,12 +638,21 @@ body {
 		li {
 			display: table-cell;
 			padding: 1rem;
+			i {
+				color: #fff;
+				font-size: 1.5rem;
+				cursor: pointer;
+				&:hover {
+					color: #ddd;
+				}
+			}
 		}
 	}
 	section {
 		width: 100%;
 		margin: 0 auto;
 		text-align: center;
+		color: #fff;
 	}
 	span {
 		display: none;
@@ -648,20 +709,36 @@ body {
 	nav {
 		text-align: center;
 		ul {
+			font-size: .9rem;
+			display: inline-block;
+			vertical-align: text-top;
+			width: auto;
+			p {
+				text-align: center;
+				text-indent: 0;
+				font-family: 'Cabin', serif;
+				color: #fff;
+				width: 8rem;
+				padding: 0;
+			}
 			li {
-				display: inline-block;
-				width: 4rem;
-				height: 3rem;
-				margin: 1rem;
-				line-height: 3rem;
+				display: block;
+				width: 8rem;
+				//height: 3rem;
+				margin: .5rem auto;
+				//line-height: 3rem;
+				font-family: serif;
+				font-style: italic;
 				a {
 					text-decoration: none;
+					text-align: center;
 					display: block;
 					width: 100%;
 					height: 100%;
 					color: #aaa;
 					&:hover {
 						color: #fff;
+						text-decoration: underline;
 					}
 				}
 			}
@@ -670,17 +747,76 @@ body {
 }
 
 // Modal --------------------------------------------------------
+
+.contact.block.info {
+	column-count: 1;
+	.modal {
+		column-count: 1;
+		h4 {
+			display: none;
+			text-align: center;
+		}
+	}
+	form {
+		margin: 0 auto;
+		display: block;
+		width: 300px;
+	}
+	input, label, textarea {
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin: .25rem auto;
+	}
+	label {
+		text-align: left;
+	}
+	span {
+			left: 0;
+			bottom: 0;
+			border-radius: .1rem;
+			background-color: transparent;
+			//border: solid .1rem #000;
+			width: 10rem;
+			height: 4rem;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			display: table-cell;
+			margin: 2rem auto;
+			color: #000;
+			transition: all .4s;
+			cursor: pointer;
+			text-align: center;
+		}
+		.button-container {
+			width: 100%;
+			column-count: 1;
+		}
+
+		#send {
+			background: linear-gradient(to bottom, #4BFF7F, #31FF6D, #27CC57);
+			color: #fff;
+			margin: 1rem auto;
+			display: block;
+			&:hover {
+				background: linear-gradient(to bottom, #3aee6e, #20ee5c, #16bb46);
+			}
+		}
+}
 .modal-wrap {
-	position: absolute;
+	position: fixed;
 	background-color:rgba(0,0,0, .7);
 	display: block;
 	width: 100%;
 	height: 100%;
+	overflow: auto;
 	z-index: 3;
 	display: none;
 	.modal {
 		width: 40%;
+		height: 70%;
 		min-width: 600px;
+		color: #fff;
 		@media screen and ( max-width: map-get($breaks, tablet) ) {
 			width: 100%;
 			min-width: 0;
@@ -688,19 +824,34 @@ body {
 			padding-right: 0;
 		}
 		max-width: 1024px;
-		height: 50%;
+		vertical-align: middle;
 		display: block;
 		position: absolute;
-		background-color: #fff;
+		background: url('../img/overlay1.png'), url('../img/form.png') no-repeat;
+		background-size: cover;
 		right: 0;
 		left: 0;
 		top: 0;
 		bottom: 0;
 		margin: auto;
-		padding: 1rem;
+		//padding: 1rem;
 		h3 {
+			margin-top: 2rem;
 			font-size: map-get($fonts, h3);
 			text-align: center;
+			strong {
+				color: map-get($colors2, tertiary);
+				display: block;
+			}
+		}
+		h4 {
+			display: block;
+			font-size: map-get($fonts, h4);
+			text-align: center;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+			width: 60%;
+			margin: 2rem auto;
 		}
 		ul {
 			width: 60%;
@@ -717,6 +868,18 @@ body {
 				display: block;
 				width: 100%;
 				resize: none;
+				margin-bottom: .5rem;
+			}
+			label {
+				text-align: center;
+				font-size: .8rem;
+			}
+			input, textarea {
+				text-align: center;
+				margin-bottom: 1rem;
+			}
+			textarea {
+				min-height: 4rem;
 			}
 			button {
 				width: 50%;
@@ -724,21 +887,51 @@ body {
 				display: block;
 			}
 		}
+		.button-container {
+			width: 60%;
+			display: table;
+			margin: 0 auto;
+			border-spacing: 1rem;
+			@media screen and ( max-width: map-get($breaks, mobile) ) {
+				display: block;
+				width: 90%;
+				span {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
 		span {
-			border-radius: 0;
+			left: 0;
+			bottom: 0;
+			border-radius: .1rem;
 			background-color: transparent;
-			border: solid .1rem #000;
+			//border: solid .1rem #000;
 			width: 10rem;
 			height: 4rem;
 			font-size: 1.5rem;
 			line-height: 4rem;
-			display: block;
-			//margin-top: 10rem;
+			display: table-cell;
 			margin: 2rem auto;
 			color: #000;
 			transition: all .4s;
 			cursor: pointer;
 			text-align: center;
+		}
+
+		#send {
+			background: linear-gradient(to bottom, #4BFF7F, #31FF6D, #27CC57);
+			color: #fff;
+			&:hover {
+				background: linear-gradient(to bottom, #3aee6e, #20ee5c, #16bb46);
+			}
+		}
+		#close-modal {
+			background: linear-gradient(to bottom, #FF4C4B, #FF3231, #CC2827);
+			color: #fff;
+			&:hover {
+				background: linear-gradient(to bottom, #ee3b3a, #ee2120, #bb1716);
+			}
 		}
 	}
 }

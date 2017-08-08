@@ -66,33 +66,22 @@ header {
   width: 100%;
   height: 75px;
   transition: all .25s;
-  background-color: rgba(255, 255, 255, 0.4); }
+  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #E88D0C; }
+  header .wrap {
+    height: 100%;
+    display: block;
+    max-width: 1250px;
+    margin: 0 auto; }
   header img:first-child {
     display: block; }
   header img:last-child {
     display: none; }
-  header.colored {
-    background-color: white;
-    padding-top: 1rem;
-    border-bottom: 1px solid #000; }
-    header.colored nav .topnav .hidden-services {
-      background-color: #fff; }
-    header.colored .hidden-services {
-      background-color: #fff; }
-    header.colored .topnav a, header.colored .topnav li span {
-      color: #000; }
-      header.colored .topnav a:hover, header.colored .topnav li span:hover {
-        background-color: #eee;
-        color: #111; }
-    header.colored img:first-child {
-      display: none; }
-    header.colored img:last-child {
-      display: block; }
   header .logo {
     display: inline-block;
     max-width: 30%;
     height: 90%;
-    padding-top: .25rem;
+    padding-top: .2rem;
     margin-bottom: .5rem;
     padding-left: 1rem; }
     header .logo img {
@@ -147,22 +136,37 @@ header {
         display: none;
         position: absolute;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.71);
+        background-color: #E88D0C;
         left: 0; }
+        header nav .topnav .hidden-services li a {
+          font-size: 1rem; }
+        @media screen and (max-width: 480px) {
+          header nav .topnav .hidden-services {
+            display: block;
+            background-color: transparent; } }
         header nav .topnav .hidden-services:hover {
           display: block; }
         header nav .topnav .hidden-services .hidden-service {
           text-align: center;
           display: block;
           width: 100%; }
-          header nav .topnav .hidden-services .hidden-service:hover {
-            background-color: #ddd; }
+          @media screen and (max-width: 480px) {
+            header nav .topnav .hidden-services .hidden-service a {
+              width: 50%;
+              float: right;
+              clear: both;
+              font-size: 1rem;
+              text-align: left; } }
       header nav .topnav li {
         float: left;
         list-style: none;
         width: 5rem;
         line-height: 75px;
         height: 100%; }
+        @media screen and (max-width: 480px) {
+          header nav .topnav li:last-child {
+            clear: both; } }
         header nav .topnav li a, header nav .topnav li span {
           cursor: pointer;
           width: 100%;
@@ -174,9 +178,12 @@ header {
           font-size: 1.25rem;
           transition: all .5s; }
           header nav .topnav li a:hover, header nav .topnav li span:hover {
-            color: #0098ec; }
+            color: #b3b3b3; }
         header nav .topnav li span:hover ~ .hidden-services {
           display: block; }
+        @media screen and (max-width: 480px) {
+          header nav .topnav li span:hover {
+            color: #fff; } }
 
 @media screen and (max-width: 990px) {
   .block.services ul {
@@ -222,11 +229,10 @@ header {
       transition: all .25s; }
     header nav .topnav {
       width: 100%;
-      height: 20%;
       position: absolute;
       right: 0;
       left: 0;
-      top: 0;
+      top: 50%;
       bottom: 0;
       display: block;
       margin: auto; }
@@ -237,6 +243,14 @@ header {
         font-size: 2rem; }
       header nav .topnav .hidden-services {
         position: relative; }
+        header nav .topnav .hidden-services .hidden-service a {
+          position: relative; }
+        header nav .topnav .hidden-services .hidden-service a::before {
+          content: '\276F';
+          display: block;
+          position: absolute;
+          left: -1rem;
+          color: #fff; }
   header .logo {
     width: 40%;
     margin: 0 auto;
@@ -268,6 +282,16 @@ body {
 
 .about {
   border-bottom: .01rem solid #000; }
+
+.banner .aboutbanner {
+  column-count: 1; }
+  .banner .aboutbanner h1, .banner .aboutbanner h2 {
+    display: none; }
+    @media screen and (max-width: 676px) {
+      .banner .aboutbanner h1, .banner .aboutbanner h2 {
+        display: block; } }
+  .banner .aboutbanner img {
+    max-width: 600px; }
 
 .info, .about {
   margin: 0 auto;
@@ -387,7 +411,11 @@ body {
     .banner div h1 {
       font-size: 3rem;
       font-weight: 900;
-      color: #dedede; }
+      color: #dedede;
+      margin-top: 5rem; }
+      @media screen and (max-width: 720px) {
+        .banner div h1 {
+          margin-top: 0; } }
     .banner div h2 {
       font-size: 2.5rem;
       color: #dedede; }
@@ -418,10 +446,17 @@ body {
     .foot .icons li {
       display: table-cell;
       padding: 1rem; }
+      .foot .icons li i {
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer; }
+        .foot .icons li i:hover {
+          color: #ddd; }
   .foot section {
     width: 100%;
     margin: 0 auto;
-    text-align: center; }
+    text-align: center;
+    color: #fff; }
   .foot span {
     display: none; }
   @media screen and (max-width: 480px) {
@@ -465,43 +500,104 @@ body {
       color: #0098ec; }
   .foot nav {
     text-align: center; }
-    .foot nav ul li {
+    .foot nav ul {
+      font-size: .9rem;
       display: inline-block;
-      width: 4rem;
-      height: 3rem;
-      margin: 1rem;
-      line-height: 3rem; }
-      .foot nav ul li a {
-        text-decoration: none;
+      vertical-align: text-top;
+      width: auto; }
+      .foot nav ul p {
+        text-align: center;
+        text-indent: 0;
+        font-family: 'Cabin', serif;
+        color: #fff;
+        width: 8rem;
+        padding: 0; }
+      .foot nav ul li {
         display: block;
-        width: 100%;
-        height: 100%;
-        color: #aaa; }
-        .foot nav ul li a:hover {
-          color: #fff; }
+        width: 8rem;
+        margin: .5rem auto;
+        font-family: serif;
+        font-style: italic; }
+        .foot nav ul li a {
+          text-decoration: none;
+          text-align: center;
+          display: block;
+          width: 100%;
+          height: 100%;
+          color: #aaa; }
+          .foot nav ul li a:hover {
+            color: #fff;
+            text-decoration: underline; }
+
+.contact.block.info {
+  column-count: 1; }
+  .contact.block.info .modal {
+    column-count: 1; }
+    .contact.block.info .modal h4 {
+      display: none;
+      text-align: center; }
+  .contact.block.info form {
+    margin: 0 auto;
+    display: block;
+    width: 300px; }
+  .contact.block.info input, .contact.block.info label, .contact.block.info textarea {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: .25rem auto; }
+  .contact.block.info label {
+    text-align: left; }
+  .contact.block.info span {
+    left: 0;
+    bottom: 0;
+    border-radius: .1rem;
+    background-color: transparent;
+    width: 10rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    display: table-cell;
+    margin: 2rem auto;
+    color: #000;
+    transition: all .4s;
+    cursor: pointer;
+    text-align: center; }
+  .contact.block.info .button-container {
+    width: 100%;
+    column-count: 1; }
+  .contact.block.info #send {
+    background: linear-gradient(to bottom, #4BFF7F, #31FF6D, #27CC57);
+    color: #fff;
+    margin: 1rem auto;
+    display: block; }
+    .contact.block.info #send:hover {
+      background: linear-gradient(to bottom, #3aee6e, #20ee5c, #16bb46); }
 
 .modal-wrap {
-  position: absolute;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   display: block;
   width: 100%;
   height: 100%;
+  overflow: auto;
   z-index: 3;
   display: none; }
   .modal-wrap .modal {
     width: 40%;
+    height: 70%;
     min-width: 600px;
+    color: #fff;
     max-width: 1024px;
-    height: 50%;
+    vertical-align: middle;
     display: block;
     position: absolute;
-    background-color: #fff;
+    background: url("../img/overlay1.png"), url("../img/form.png") no-repeat;
+    background-size: cover;
     right: 0;
     left: 0;
     top: 0;
     bottom: 0;
-    margin: auto;
-    padding: 1rem; }
+    margin: auto; }
     @media screen and (max-width: 676px) {
       .modal-wrap .modal {
         width: 100%;
@@ -509,8 +605,20 @@ body {
         padding-left: 0;
         padding-right: 0; } }
     .modal-wrap .modal h3 {
+      margin-top: 2rem;
       font-size: 2.2rem;
       text-align: center; }
+      .modal-wrap .modal h3 strong {
+        color: #E88D0C;
+        display: block; }
+    .modal-wrap .modal h4 {
+      display: block;
+      font-size: 1.6rem;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      width: 60%;
+      margin: 2rem auto; }
     .modal-wrap .modal ul {
       width: 60%;
       margin: 0 auto;
@@ -523,24 +631,56 @@ body {
       .modal-wrap .modal form input, .modal-wrap .modal form label, .modal-wrap .modal form textarea {
         display: block;
         width: 100%;
-        resize: none; }
+        resize: none;
+        margin-bottom: .5rem; }
+      .modal-wrap .modal form label {
+        text-align: center;
+        font-size: .8rem; }
+      .modal-wrap .modal form input, .modal-wrap .modal form textarea {
+        text-align: center;
+        margin-bottom: 1rem; }
+      .modal-wrap .modal form textarea {
+        min-height: 4rem; }
       .modal-wrap .modal form button {
         width: 50%;
         margin: .5rem auto;
         display: block; }
+    .modal-wrap .modal .button-container {
+      width: 60%;
+      display: table;
+      margin: 0 auto;
+      border-spacing: 1rem; }
+      @media screen and (max-width: 480px) {
+        .modal-wrap .modal .button-container {
+          display: block;
+          width: 90%; }
+          .modal-wrap .modal .button-container span {
+            display: block;
+            width: 100%; } }
     .modal-wrap .modal span {
-      border-radius: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: .1rem;
       background-color: transparent;
-      border: solid .1rem #000;
       width: 10rem;
       height: 4rem;
       font-size: 1.5rem;
       line-height: 4rem;
-      display: block;
+      display: table-cell;
       margin: 2rem auto;
       color: #000;
       transition: all .4s;
       cursor: pointer;
       text-align: center; }
+    .modal-wrap .modal #send {
+      background: linear-gradient(to bottom, #4BFF7F, #31FF6D, #27CC57);
+      color: #fff; }
+      .modal-wrap .modal #send:hover {
+        background: linear-gradient(to bottom, #3aee6e, #20ee5c, #16bb46); }
+    .modal-wrap .modal #close-modal {
+      background: linear-gradient(to bottom, #FF4C4B, #FF3231, #CC2827);
+      color: #fff; }
+      .modal-wrap .modal #close-modal:hover {
+        background: linear-gradient(to bottom, #ee3b3a, #ee2120, #bb1716); }
 
 /*# sourceMappingURL=main.css.map */

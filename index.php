@@ -44,8 +44,7 @@
 	<header>
 		<div class="wrap">
 			<div class="logo">
-				<img src="img/draft-text-white.png" alt="">
-				<img src="img/draft-text-black.png" alt="">
+				<a href="index.php"><img src="img/draft-text-white.png" alt=""></a>
 			</div>
 			<div id="nav-icon">
 				<span></span>
@@ -83,10 +82,10 @@
 	<span class="modal-activate">Get Started</span>
 </section>
 <div class="info-wrap">
-	<section class="block about">
+<!-- 	<section class="block about">
 		<h3>Professional Web Development</h3>
-		<p>Refined Technologies is a company dedicated to providing excellence in Web Development and Design. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus saepe nemo amet labore ad, natus placeat commodi aperiam voluptatibus. Neque in cupiditate repellendus illum necessitatibus odio culpa iusto eum animi! </p>
-	</section>
+		<p></p>
+	</section> -->
 	<section class="block info">
 		<div>
 			<h3>Online Marketing</h3>
@@ -115,7 +114,7 @@
 			<li>
 				<img src="img/wordpress.png" alt="Wordpress Site">
 				<h4>Content Management</h4>
-				<p>Managing content. As an administrator of a site, you should be able to easily modify and update content on your site. Add a blog post, upload media, change the title of an article, etc. These are all things that can be done without having to contact a developer. Keep more of your time.</p>
+				<p>As an administrator of a site, you should be able to easily modify and update content on your site. Add a blog post, upload media, change the title of an article, etc. These are all things that can be done without having to contact a developer. Keep more of your time.</p>
 			</li>
 			<li>
 				<img src="img/seo.png" alt="Online Marketing">

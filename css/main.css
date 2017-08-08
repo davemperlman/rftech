@@ -75,8 +75,6 @@ header {
     margin: 0 auto; }
   header img:first-child {
     display: block; }
-  header img:last-child {
-    display: none; }
   header .logo {
     display: inline-block;
     max-width: 30%;

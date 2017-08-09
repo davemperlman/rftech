@@ -241,7 +241,7 @@ header {
       margin: auto; } }
     @media screen and (max-width: 480px) and (max-height: 800px) {
       header nav .topnav {
-        top: 10%; } }
+        top: 30%; } }
 @media screen and (max-width: 480px) {
       header nav .topnav li, header nav .topnav .hidden-service {
         float: none;
@@ -329,6 +329,9 @@ body {
 .services {
   max-width: 1024px;
   padding: 5rem; }
+  .services a {
+    text-decoration: none;
+    cursor: pointer; }
   .services p {
     color: #fff; }
   .services h3 {
@@ -398,6 +401,7 @@ body {
     cursor: pointer;
     text-align: center; }
     .banner span:hover {
+      background-color: #fff;
       color: #ffc600; }
   .banner div {
     max-width: 1024px;
@@ -465,9 +469,6 @@ body {
     color: #fff; }
   .foot span {
     display: none; }
-  @media screen and (max-width: 480px) {
-    .foot {
-      padding-top: 0; } }
   .foot footer, .foot nav {
     max-width: 1024px;
     margin: 0 auto;
@@ -609,7 +610,12 @@ body {
         width: 100%;
         min-width: 0;
         padding-left: 0;
-        padding-right: 0; } }
+        padding-right: 0;
+        position: relative; } }
+    @media screen and (max-width: 480px) {
+      .modal-wrap .modal {
+        height: auto;
+        padding: .5rem 0; } }
     .modal-wrap .modal h3 {
       margin-top: 2rem;
       font-size: 2.2rem;
@@ -668,6 +674,7 @@ body {
       bottom: 0;
       border-radius: .1rem;
       background-color: transparent;
+      position: relative;
       width: 10rem;
       height: 4rem;
       font-size: 1.5rem;

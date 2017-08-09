@@ -102,24 +102,32 @@
 		<h3><strong>Website Services</strong></h3>
 		<ul>
 			<li>
-				<img src="img/design2.png" alt="Responsive Design">
-				<h4>Responsive Design</h4>
-				<p>Provide your users with a sleek, modern visual experience that allows them to easily navigate. It's a creative process, no two designs are the same. We build our designs based on what you want the user experience to be.</p>				
+				<a href="responsivedesign.php">
+					<img src="img/design2.png" alt="Responsive Design">
+					<h4>Responsive Design</h4>
+					<p>Provide your users with a sleek, modern visual experience that allows them to easily navigate. It's a creative process, no two designs are the same. We build our designs based on what you want the user experience to be.</p>				
+				</a>
 			</li>
 			<li>
-				<img src="img/data.png" alt="Database Design">
-				<h4>Database Design</h4>
-				<p>The processing and manipulation of data is an often overlooked aspect of modern web applications. Contracts, email lists, customer databases, and the like are all dynamic information that can often be more efficiently managed by a web based application. We can help you increase the interactivity of your site by building custom data management and processing functionality.</p>				
+				<a href="databasedesign.php">
+					<img src="img/data.png" alt="Database Design">
+					<h4>Database Design</h4>
+					<p>The processing and manipulation of data is an often overlooked aspect of modern web applications. Contracts, email lists, customer databases, and the like are all dynamic information that can often be more efficiently managed by a web based application. We can help you increase the interactivity of your site by building custom data management and processing functionality.</p>
+				</a>				
 			</li>
 			<li>
-				<img src="img/wordpress.png" alt="Wordpress Site">
-				<h4>Content Management</h4>
-				<p>As an administrator of a site, you should be able to easily modify and update content on your site. Add a blog post, upload media, change the title of an article, etc. These are all things that can be done without having to contact a developer. Keep more of your time.</p>
+				<a href="contentmanagement.php">
+					<img src="img/wordpress.png" alt="Wordpress Site">
+					<h4>Content Management</h4>
+					<p>As an administrator of a site, you should be able to easily modify and update content on your site. Add a blog post, upload media, change the title of an article, etc. These are all things that can be done without having to contact a developer. Keep more of your time.</p>
+				</a>
 			</li>
 			<li>
-				<img src="img/seo.png" alt="Online Marketing">
-				<h4>SEO Marketing</h4>
-				<p>So you have a site, great! Now let's help people find it. There are BILLIONS of websites on the internet, we make sure that people are finding yours using proper semantics and targeted keywords.</p>	
+				<a href="seomarketing.php">
+					<img src="img/seo.png" alt="Online Marketing">
+					<h4>SEO Marketing</h4>
+					<p>So you have a site, great! Now let's help people find it. There are BILLIONS of websites on the internet, we make sure that people are finding yours using proper semantics and targeted keywords.</p>	
+				</a>
 			</li>
 		</ul>
 	</section>

@@ -342,7 +342,7 @@ header {
 				display: block;
 				margin: auto;
 				@media screen and (max-height: 800px) {
-					top: 10%;
+					top: 30%;
 				}
 				li, .hidden-service {
 					float: none;
@@ -459,6 +459,10 @@ body {
 .services {
 	max-width: 1024px;
 	padding: 5rem;
+	a {
+		text-decoration: none;
+		cursor: pointer;
+	}
 	p {
 		color: #fff;
 	}
@@ -538,7 +542,7 @@ body {
 			cursor: pointer;
 			text-align: center;
 			&:hover {
-				//background-color: ;
+				background-color: map-get($colors2, secondary) ;
 				color: map-get($colors2, tertiary);
 			}
 		}
@@ -629,9 +633,6 @@ body {
 	span {
 		display: none;
 	}
-	@media screen and ( max-width: map-get($breaks, mobile) ) {
-				padding-top: 0;
-			}
 	footer, nav {
 		max-width: 1024px;
 		margin: 0 auto;
@@ -794,6 +795,11 @@ body {
 			min-width: 0;
 			padding-left: 0;
 			padding-right: 0;
+			position: relative;
+		}
+		@media screen and ( max-width: map-get($breaks, mobile) ) {
+			height: auto;
+			padding: .5rem 0;
 		}
 		max-width: 1024px;
 		vertical-align: middle;
@@ -878,6 +884,7 @@ body {
 			bottom: 0;
 			border-radius: .1rem;
 			background-color: transparent;
+			position: relative;
 			//border: solid .1rem #000;
 			width: 10rem;
 			height: 4rem;

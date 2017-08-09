@@ -45,7 +45,6 @@
 		<div class="wrap">
 			<div class="logo">
 				<img src="img/draft-text-white.png" alt="">
-				<img src="img/draft-text-black.png" alt="">
 			</div>
 			<div id="nav-icon">
 				<span></span>

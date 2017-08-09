@@ -36,7 +36,7 @@
 		<p id='status'></p>
 		<div class="button-container">
 			<span id="close-modal">Close</span>
-			<span id="send">Send</span>
+			<span id="send" data-active='inactive'>Send</span>
 		</div>
 	</div>
 </div>

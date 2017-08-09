@@ -8,16 +8,16 @@ $fonts: (
 	text: 1.15rem
 	);
 $colors: (
-	h1: #dedede,
-	h2: #dedede,
-	h3: #e88d0c,
+	h1: #d7d7d7,
+	h2: #d7d7d7,
+	h3: #ffc600,
 	h4: #444,
-	h4w: #e88d0c
+	h4w: #ffc600
 	);
 $colors2: (
 	main: #000,
 	secondary: #fff,
-	tertiary: #E88D0C,
+	tertiary: #ffc600,
 	quaternary: #6D0CE8,
 	button: #4BFF7F
 	);
@@ -60,14 +60,14 @@ $breaks: (
 		bottom: 0;
 		margin: auto;
 		border-radius: 100%;
-		border: .5rem dashed orange;
+		border: .5rem dashed map-get($colors2, tertiary);
 		box-sizing: border-box;
 		animation: rotateClockwise 3s linear infinite;
 		&::after {
 			position: absolute;
 			content: '';
 			border-radius: 100%;
-			border: .5rem dashed purple;
+			border: .5rem dashed map-get($colors2, quaternary);
 			box-sizing: border-box;
 			width: 90%;
 			height: 90%;
@@ -114,37 +114,6 @@ header {
 	img:first-child {
 			display: block;
 		}
-	// &.colored {
-	// 	background-color: rgba(255, 255, 255, 1);
-	// 	padding-top: 1rem;
-	// 	//padding-bottom: 1rem;
-	// 	border-bottom: 1px solid #000;
-	// 	nav .topnav .hidden-services {
-	// 		background-color: #fff;
-	// 	}
-	// 	.hidden-services {
-	// 		background-color: #fff;
-	// 		@media screen and ( max-width: map-get($breaks, mobile) ) {
-	// 			background-color: none;
-	// 		}
-	// 	}
-	// 	.topnav a, .topnav li span{
-	// 		color: #000;
-	// 		&:hover {
-	// 			background-color: #eee;
-	// 			color: #111;
-	// 		}
-	// 	}
-	// 	img:first-child {
-	// 		display: none;
-	// 	}
-	// 	img:last-child {
-	// 		display: block;
-	// 	}
-	// 	.logo {
-	// 		margin-top: -.5rem;
-	// 	}
-	// }
 	.logo {
 		display: inline-block;
 		max-width: 30%;
@@ -277,7 +246,6 @@ header {
 					font-size: map-get($fonts, menu);
 					transition: all .5s;
 					&:hover {
-						//background-color: map-get($colors2, tertiary);
 						color: mix(map-get($colors2, secondary), #666);
 					}
 				}
@@ -369,6 +337,9 @@ header {
 				bottom: 0;
 				display: block;
 				margin: auto;
+				@media screen and (max-height: 800px) {
+					top: 0;
+				}
 				li, .hidden-service {
 					float: none;
 					width: 100%;
@@ -405,7 +376,7 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	font-size: map-get($fonts, text);
-	font-family: 'Cabin', sans-serif;
+	font-family: sans-serif;
 	p {
 		line-height: 1.5rem;
 		color: #666;
@@ -547,7 +518,7 @@ body {
 	span {
 			border-radius: .1rem;
 			background-color: transparent;
-			border: solid .1rem #fff;
+			border: solid .1rem map-get($colors, h1);
 			width: 10rem;
 			height: 4rem;
 			font-size: 1.5rem;
@@ -558,13 +529,13 @@ body {
 			left: 0;
 			right: 0;
 			margin: auto;
-			color: #fff;
+			color: map-get($colors, h1);
 			transition: all .4s;
 			cursor: pointer;
 			text-align: center;
 			&:hover {
-				background-color: #fff;
-				color: #0098ec;
+				//background-color: ;
+				color: map-get($colors2, tertiary);
 			}
 		}
 	div {

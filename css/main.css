@@ -27,14 +27,14 @@
   bottom: 0;
   margin: auto;
   border-radius: 100%;
-  border: .5rem dashed orange;
+  border: 0.5rem dashed #ffc600;
   box-sizing: border-box;
   animation: rotateClockwise 3s linear infinite; }
   #loading-img::after {
     position: absolute;
     content: '';
     border-radius: 100%;
-    border: .5rem dashed purple;
+    border: 0.5rem dashed #6D0CE8;
     box-sizing: border-box;
     width: 90%;
     height: 90%;
@@ -67,7 +67,7 @@ header {
   height: 75px;
   transition: all .25s;
   background-color: rgba(255, 255, 255, 0.7);
-  background-color: #E88D0C; }
+  background-color: #ffc600; }
   header .wrap {
     height: 100%;
     display: block;
@@ -135,7 +135,7 @@ header {
         position: absolute;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.71);
-        background-color: #E88D0C;
+        background-color: #ffc600;
         left: 0; }
         header nav .topnav .hidden-services li a {
           font-size: 1rem; }
@@ -233,7 +233,11 @@ header {
       top: 50%;
       bottom: 0;
       display: block;
-      margin: auto; }
+      margin: auto; } }
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+      header nav .topnav {
+        top: 0; } }
+@media screen and (max-width: 480px) {
       header nav .topnav li, header nav .topnav .hidden-service {
         float: none;
         width: 100%;
@@ -257,7 +261,7 @@ body {
   margin: 0 auto;
   width: 100%;
   font-size: 1.15rem;
-  font-family: 'Cabin', sans-serif; }
+  font-family: sans-serif; }
   body p {
     line-height: 1.5rem;
     color: #666;
@@ -270,7 +274,7 @@ body {
   margin: 0 auto; }
   .block h3 {
     font-size: 2.2rem;
-    color: #e88d0c;
+    color: #ffc600;
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center; }
@@ -353,7 +357,7 @@ body {
             width: 50%;
             margin: 0rem auto; } }
       .services ul li h4 {
-        color: #e88d0c;
+        color: #ffc600;
         font-size: 1.6rem;
         margin-bottom: 2rem; }
         @media screen and (max-width: 676px) {
@@ -368,12 +372,12 @@ body {
   min-height: 45rem;
   position: relative; }
   .banner strong {
-    color: #E88D0C;
+    color: #ffc600;
     display: block; }
   .banner span {
     border-radius: .1rem;
     background-color: transparent;
-    border: solid .1rem #fff;
+    border: solid 0.1rem #d7d7d7;
     width: 10rem;
     height: 4rem;
     font-size: 1.5rem;
@@ -384,13 +388,12 @@ body {
     left: 0;
     right: 0;
     margin: auto;
-    color: #fff;
+    color: #d7d7d7;
     transition: all .4s;
     cursor: pointer;
     text-align: center; }
     .banner span:hover {
-      background-color: #fff;
-      color: #0098ec; }
+      color: #ffc600; }
   .banner div {
     max-width: 1024px;
     padding-top: 125px;
@@ -409,14 +412,14 @@ body {
     .banner div h1 {
       font-size: 3rem;
       font-weight: 900;
-      color: #dedede;
+      color: #d7d7d7;
       margin-top: 5rem; }
       @media screen and (max-width: 720px) {
         .banner div h1 {
           margin-top: 0; } }
     .banner div h2 {
       font-size: 2.5rem;
-      color: #dedede; }
+      color: #d7d7d7; }
     @media screen and (max-width: 990px) {
       .banner div {
         margin: 0 .5rem; }
@@ -607,7 +610,7 @@ body {
       font-size: 2.2rem;
       text-align: center; }
       .modal-wrap .modal h3 strong {
-        color: #E88D0C;
+        color: #ffc600;
         display: block; }
     .modal-wrap .modal h4 {
       display: block;
